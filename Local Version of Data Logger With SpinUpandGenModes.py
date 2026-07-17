@@ -239,7 +239,7 @@ async def main():
          CsvController(out2, id=2, transport=transport, query_resolution=qr) as m2:
 
         # Clear faults
-       # await asyncio.gather(m1.set_stop(), m2.set_stop())
+       await asyncio.gather(m1.set_stop(), m2.set_stop())
 
         await asyncio.gather(
             run_motor_velocity(
@@ -255,7 +255,7 @@ async def main():
                 spinup_time_s = shift_time,
                 generator_torque = generator_torque, #SLOP CODE WROTE THIS, NOT SURE WHY JUST WANT IT TO WORK
 
-            #):
+            ):
                 #pass
             #run_motor_velocity_with_kd_and_vel_shift(
              #   m2,
