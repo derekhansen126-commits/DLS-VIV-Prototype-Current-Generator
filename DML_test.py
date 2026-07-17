@@ -1,3 +1,6 @@
+#My first attempt to make a script that would run similar to what Raven made previously. A big goal was understanding, but
+#its terrible, was trying to be neater
+
 #!/usr/bin/env python3
 import asyncio
 import csv
