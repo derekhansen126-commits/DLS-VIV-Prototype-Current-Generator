@@ -110,8 +110,8 @@ async def run_motor_spinup_then_generate(
     controller: CsvController,
     total_duration_s: float,
     spinup_velocity: float,
-    spinup_time_s = 5.0,
-    generator_torque = -0.2,
+    spinup_time_s = 5.0
+    generator_torque = -0.2
 ):
     """
     M2 behavior:
