@@ -1,6 +1,7 @@
-#This data logger controls two moteus motors
-#both motors fire up, M2 shifts after 5 seconds
-#
+#The Modified Code, haven't had much chance to work on it as I have been busy working to try and recreate the torque 
+#hand motion Raven managed to get, need to shoot him an email to ask how exactly he managed it as I am not making any power at all
+#not even a little bit.
+
 
 #Modified by Derek Hansen
 import asyncio
