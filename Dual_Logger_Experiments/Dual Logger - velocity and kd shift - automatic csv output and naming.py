@@ -1,3 +1,5 @@
+#This is some older code that Raven worked on before, it is included as an example to show that the original code works.
+
 #This data logger controls two moteus motors
 #both motors fire up, M2 shifts after 5 seconds
 #script allows for kd and/or velocity shift
