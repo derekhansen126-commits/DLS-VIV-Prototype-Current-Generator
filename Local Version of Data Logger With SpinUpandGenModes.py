@@ -164,22 +164,22 @@ async def run_motor_spinup_then_generate(
 #Smoothing out the torque ramp down so everything doesn't break ;)
 #why is it not working?????????
 #it is called, it so is, so why is it not working
-for torque in (
+#for torque in (
     #generator_torque * 0.50,
     #generator_torque * 0.25,
     #generator_torque * 0.10,
-    0.0,
+    #0.0,
 
 ):
-    async def controller():
-        await controller.set_position(
-        position=math.nan,
-        kp_scale=0.0,
-        kd_scale=0.0,
-        feedforward_torque=torque,
-        maximum_torque=max(abs(generator_torque), 0.05),
-        query=True,
-    )
+    #async def controller():
+     #   await controller.set_position(
+      #  position=math.nan,
+       # kp_scale=0.0,
+        #kd_scale=0.0,
+        #feedforward_torque=torque,
+        #maximum_torque=max(abs(generator_torque), 0.05),
+        #query=True,
+    #)
     #await asyncio.sleep(0.1)
 
 #await controller.set_stop()
@@ -241,22 +241,22 @@ async def main():
         # Clear faults
        # await asyncio.gather(m1.set_stop(), m2.set_stop())
 
-        #await asyncio.gather(
-         #   run_motor_velocity(
-          #      m1,
-           #     duration_s=duration,
-            #    velocity_rps=m1_vel,
-             #   max_torque=1.0,
-            #),
-            async def run_motor_spinup_then_generate(
-                controller: CsvController,
-                total_duration_s: float,
-                spinup_velocity: float,
-                spinup_time_s: float = 5.0,
-                generator_torque: float = -0.2,
+        await asyncio.gather(
+            run_motor_velocity(
+                m1,
+                duration_s=duration,
+                velocity_rps=m1_vel,
+                max_torque=1.0,
+            ),
+            run_motor_spinup_then_generate(
+                m2,
+                total_duration_s = duration,
+                spinup_velocity = m2_spinup_velocity,
+                spinup_time_s = shift_time,
+                generator_torque = generator_torque, #SLOP CODE WROTE THIS, NOT SURE WHY JUST WANT IT TO WORK
 
-            ):
-                pass
+            #):
+                #pass
             #run_motor_velocity_with_kd_and_vel_shift(
              #   m2,
               #  total_duration_s=duration,
